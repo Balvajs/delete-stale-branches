@@ -1,6 +1,6 @@
 {
   "name": "delete-stale-branches",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "private": true,
   "main": "lib/main.js",
   "scripts": {
@@ -11,11 +11,12 @@
     "package": "tsup src/main.ts --clean --minify --sourcemap",
     "test": "jest",
     "generate": "graphql-codegen-esm --config codegen.ts",
-    "all": "yarn type-check && yarn format && yarn lint && yarn package && yarn test"
+    "all": "yarn type-check && yarn format && yarn lint && yarn package && yarn test",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "https://github.com/actions/typescript-action.git"
   },
   "keywords": [
     "actions"
@@ -34,6 +35,9 @@
     "@octokit/graphql": "7.0.1",
     "@octokit/graphql-schema": "14.24.1",
     "@octokit/plugin-paginate-graphql": "4.0.0",
+    "@semantic-release/commit-analyzer": "10.0.1",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/release-notes-generator": "11.0.4",
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@types/node": "18.17.1",
     "@typescript-eslint/eslint-plugin": "6.2.0",
@@ -56,6 +60,7 @@
     "graphql": "16.7.1",
     "jest": "29.6.2",
     "prettier": "3.0.0",
+    "semantic-release": "^21.0.7",
     "ts-jest": "29.1.1",
     "tsup": "7.1.0",
     "typescript": "5.1.6"
