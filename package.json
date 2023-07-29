@@ -8,7 +8,7 @@
     "format": "prettier . --write -u",
     "format-check": "prettier . --check -u",
     "lint": "eslint src/**/*.ts",
-    "package": "tsup src/main.ts --clean --minify --sourcemap",
+    "package": "tsup src/main.ts --clean --sourcemap",
     "test": "jest",
     "generate": "graphql-codegen-esm --config codegen.ts",
     "all": "yarn type-check && yarn format && yarn lint && yarn package && yarn test",
