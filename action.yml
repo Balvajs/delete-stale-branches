@@ -1,11 +1,28 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: Delete stale branches
+description: Simple action for deleting stale branches
+author: Balvajs
+
 inputs:
-  milliseconds: # change this
-    required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  token:
+    required: false
+    description: GitHub token. Default is ${{ github.token }}
+    default: ${{ github.token }}
+
+  days-to-delete:
+    required: false
+    description: Number of days without activity after which the branch will be deleted. Default is 90 days.
+    default: '90'
+
+  dry-run:
+    required: false
+    description: If set to true, the action will only log the branches that would be deleted, but will not delete them. Default is true.
+    default: 'true'
+
+  repository:
+    required: false
+    description: Repository name and owner in format owner/repo. Default is current repository.
+    default: ${{ github.repository }}
+
 runs:
   using: 'node16'
-  main: 'dist/index.js'
+  main: 'dist/main.cjs'
