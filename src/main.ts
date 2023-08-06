@@ -11,8 +11,6 @@ const pluralizeBranches = (count: number) =>
   count === 1 ? 'branch' : 'branches'
 
 async function run(): Promise<void> {
-  process.env['INPUT_DAYS-TO-DELETE'] = '90'
-
   const { ghToken, daysToDelete, dryRun, repositoryName, repositoryOwner } =
     getInputs()
 
@@ -64,7 +62,7 @@ async function run(): Promise<void> {
   if (!branchesToDelete.length) {
     console.log('\n\nNo stale branches found.')
 
-    process.exit(1)
+    process.exit(0)
   }
 
   console.log(

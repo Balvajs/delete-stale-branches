@@ -10304,7 +10304,6 @@ var getInputs = () => {
 var chalk2 = new Chalk({ level: 2 });
 var pluralizeBranches = (count) => count === 1 ? "branch" : "branches";
 async function run() {
-  process.env["INPUT_DAYS-TO-DELETE"] = "90";
   const { ghToken, daysToDelete, dryRun, repositoryName, repositoryOwner } = getInputs();
   const octokit = getOctokit({ ghToken });
   const branches = await getRepositoryBranches({
@@ -10350,7 +10349,7 @@ Dry run. Would delete ${branchesToDelete.length} ${pluralizeBranches(
   }
   if (!branchesToDelete.length) {
     console.log("\n\nNo stale branches found.");
-    process.exit(1);
+    process.exit(0);
   }
   console.log(
     `
