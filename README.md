@@ -19,7 +19,7 @@ jobs:
       contents: write # to be able to delete branches
       pull-requests: read # to be able to confirm that branches don't have associated PRs
     steps:
-      - uses: balvajs/delete-stale-branches
+      - uses: balvajs/delete-stale-branches@v1
         with:
           days-to-delete: 120
           dry-run: false

@@ -10356,8 +10356,7 @@ Dry run. Would delete ${branchesToDelete.length} ${pluralizeBranches(
 
 Deleting ${branchesToDelete.length} ${pluralizeBranches(
       branchesToDelete.length
-    )} that are inactive for more than ${daysToDelete} days...
-`
+    )} that ${branchesToDelete.length === 1 ? "is" : "are"} inactive for more than ${daysToDelete} days...`
   );
   const deletionResults = await Promise.allSettled(
     branchesToDelete.map(async ({ name }) => {
@@ -10382,7 +10381,8 @@ Deleting ${branchesToDelete.length} ${pluralizeBranches(
     process.exit(1);
   }
   console.log(
-    `Successfully deleted ${branchesToDelete.length} ${pluralizeBranches(
+    `
+Successfully deleted ${branchesToDelete.length} ${pluralizeBranches(
       branchesToDelete.length
     )}.`
   );
