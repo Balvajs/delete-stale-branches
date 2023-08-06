@@ -65,7 +65,9 @@ export const getRepositoryBranches = async ({
     process.exit(1)
   }
 
-  debug(`Found ${nodes.length} branches in total.`)
+  debug(
+    `Found ${nodes.length} branches in total (including non-stale branches).`,
+  )
 
   return nodes
     .filter(node => node?.associatedPullRequests.nodes?.length === 0)
