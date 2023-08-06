@@ -1,34 +1,20 @@
-import { getInput } from '@actions/core'
-import chalk from 'chalk'
+import { Chalk } from 'chalk'
 
 import { getOctokit } from './get-octokit.ts'
 import { getRepositoryBranches } from './get-branches.ts'
+import { getInputs } from './get-inputs.ts'
+
+// set level to 2, to be able to print colorful messages also in CI
+const chalk = new Chalk({ level: 2 })
+
+const pluralizeBranches = (count: number) =>
+  count === 1 ? 'branch' : 'branches'
 
 async function run(): Promise<void> {
   process.env['INPUT_DAYS-TO-DELETE'] = '90'
 
-  const ghToken = getInput('token', { required: true })
-  const daysToDeleteInput = getInput('days-to-delete', { required: true })
-  const dryRun = getInput('dry-run') !== 'false'
-
-  const daysToDelete = parseInt(daysToDeleteInput, 10)
-
-  if (Number.isNaN(daysToDelete) || daysToDelete < 0) {
-    console.error('Invalid `days-to-delete` value. Must be a positive number.')
-    process.exit(1)
-  }
-
-  const repository = getInput('repository', { required: true })
-
-  if (!repository.match(/^[^/]*\/[^/]*$/)) {
-    console.error(
-      'Invalid `repository` value. Must be in format `owner/repository`.',
-    )
-    process.exit(1)
-  }
-
-  const repositoryOwner = repository.split('/')[0]
-  const repositoryName = repository.split('/')[1]
+  const { ghToken, daysToDelete, dryRun, repositoryName, repositoryOwner } =
+    getInputs()
 
   const octokit = getOctokit({ ghToken })
 
@@ -37,6 +23,12 @@ async function run(): Promise<void> {
     repositoryOwner,
     repositoryName,
   })
+
+  console.log(
+    `Found ${branches.length} ${pluralizeBranches(
+      branches.length,
+    )} without associated PR.\n\n`,
+  )
 
   let separatorPrinted = false
   for (const { name, daysDiff } of branches) {
@@ -61,32 +53,57 @@ async function run(): Promise<void> {
 
   if (dryRun) {
     console.log(
-      `\n\nDry run. Would delete ${branchesToDelete.length} branches that are inactive for more than ${daysToDelete} days.`,
+      `\n\nDry run. Would delete ${branchesToDelete.length} ${pluralizeBranches(
+        branchesToDelete.length,
+      )} that are inactive for more than ${daysToDelete} days.`,
     )
 
     return
   }
 
+  if (!branchesToDelete.length) {
+    console.log('\n\nNo stale branches found.')
+
+    process.exit(1)
+  }
+
   console.log(
-    `\n\nDeleting ${branchesToDelete.length} branches that are inactive for more than ${daysToDelete} days...`,
+    `\n\nDeleting ${branchesToDelete.length} ${pluralizeBranches(
+      branchesToDelete.length,
+    )} that are inactive for more than ${daysToDelete} days...\n`,
   )
 
-  await Promise.all(
+  const deletionResults = await Promise.allSettled(
     branchesToDelete.map(async ({ name }) => {
       try {
         await octokit.request({
           method: 'DELETE',
-          url: `/repos/${repository}/git/refs/heads/${name}`,
+          url: `/repos/${repositoryOwner}/${repositoryName}/git/refs/heads/${name}`,
         })
+        console.log(`Deleted ${name}`)
       } catch (e) {
         console.error(`Failed to delete ${name}: ${e}`)
       }
-
-      console.log(`Deleted ${name}`)
     }),
   )
 
-  console.log('Done.')
+  const failedDeletions = deletionResults.filter(
+    ({ status }) => status === 'rejected',
+  )
+
+  if (failedDeletions.length) {
+    console.error(
+      `${failedDeletions}/${branchesToDelete.length} branch deletions failed.`,
+    )
+
+    process.exit(1)
+  }
+
+  console.log(
+    `Successfully deleted ${branchesToDelete.length} ${pluralizeBranches(
+      branchesToDelete.length,
+    )}.`,
+  )
 }
 
 run()
