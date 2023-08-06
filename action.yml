@@ -1,6 +1,10 @@
-name: Delete stale branches
+name: Cleanup stale branches
 description: Simple action for deleting stale branches
 author: Balvajs
+branding:
+  icon: git-branch
+  color: orange
+
 
 inputs:
   days-to-delete:
