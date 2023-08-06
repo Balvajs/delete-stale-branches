@@ -4910,6 +4910,7 @@ __metadata:
     node-fetch: 3.3.2
     prettier: 3.0.1
     semantic-release: ^21.0.7
+    semantic-release-major-tag: 0.3.2
     ts-jest: 29.1.1
     ts-node: 10.9.1
     tsup: 7.2.0
@@ -10635,6 +10636,13 @@ __metadata:
   version: 1.1.0
   resolution: "scuid@npm:1.1.0"
   checksum: cd094ac3718b0070a222f9a499b280c698fdea10268cc163fa244421099544c1766dd893fdee0e2a8eba5d53ab9d0bcb11067bedff166665030fa6fda25a096b
+  languageName: node
+  linkType: hard
+
+"semantic-release-major-tag@npm:0.3.2":
+  version: 0.3.2
+  resolution: "semantic-release-major-tag@npm:0.3.2"
+  checksum: 253af6f8434b26505717b921ce8f525143c4b015293793c28b4159c66279d2d075c7461cb6880f7345b525937229b3c5c923f4c0113927503fa096d94fb548e3
   languageName: node
   linkType: hard
 

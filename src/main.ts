@@ -68,7 +68,9 @@ async function run(): Promise<void> {
   console.log(
     `\n\nDeleting ${branchesToDelete.length} ${pluralizeBranches(
       branchesToDelete.length,
-    )} that are inactive for more than ${daysToDelete} days...\n`,
+    )} that ${
+      branchesToDelete.length === 1 ? 'is' : 'are'
+    } inactive for more than ${daysToDelete} days...`,
   )
 
   const deletionResults = await Promise.allSettled(
@@ -98,7 +100,7 @@ async function run(): Promise<void> {
   }
 
   console.log(
-    `Successfully deleted ${branchesToDelete.length} ${pluralizeBranches(
+    `\nSuccessfully deleted ${branchesToDelete.length} ${pluralizeBranches(
       branchesToDelete.length,
     )}.`,
   )
