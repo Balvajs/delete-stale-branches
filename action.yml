@@ -5,7 +5,6 @@ branding:
   icon: git-branch
   color: orange
 
-
 inputs:
   days-to-delete:
     required: false
