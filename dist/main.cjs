@@ -10250,17 +10250,13 @@ var getRepositoryBranches = async ({
   repositoryOwner,
   repositoryName
 }) => {
-  const { repository } = await octokit.graphql.paginate(
-    branchesQuery,
-    {
-      owner: repositoryOwner,
-      name: repositoryName
-    }
-  );
+  const { repository } = await octokit.graphql.paginate(branchesQuery, {
+    owner: repositoryOwner,
+    name: repositoryName
+  });
   const nodes = repository?.refs?.nodes;
   if (!nodes) {
-    console.error("No branches found.");
-    process.exit(1);
+    throw new Error("No branches found.");
   }
   (0, import_core2.debug)(
     `Found ${nodes.length} branches in total (including non-stale branches).`
@@ -10276,18 +10272,22 @@ var import_core3 = __toESM(require_core(), 1);
 var getInputs = () => {
   const ghToken = (0, import_core3.getInput)("token", { required: true });
   const daysToDeleteInput = (0, import_core3.getInput)("days-to-delete", { required: true });
-  const dryRun = (0, import_core3.getInput)("dry-run") !== "false";
   const daysToDelete = parseInt(daysToDeleteInput, 10);
-  if (Number.isNaN(daysToDelete) || daysToDelete < 0) {
-    console.error("Invalid `days-to-delete` value. Must be a positive number.");
-    process.exit(1);
+  if (!daysToDeleteInput.match(/^\d+$/) || Number.isNaN(daysToDelete) || daysToDelete <= 0) {
+    throw new Error(
+      "Invalid `days-to-delete` value. Must be a positive number or zero."
+    );
   }
+  const dryRunInput = (0, import_core3.getInput)("dry-run", { required: true });
+  if (!dryRunInput.match("true") && !dryRunInput.match("false")) {
+    throw new Error("Invalid `dry-run` value. Must be either `true` or `false`");
+  }
+  const dryRun = dryRunInput !== "false";
   const repository = (0, import_core3.getInput)("repository", { required: true });
   if (!repository.match(/^[^/]*\/[^/]*$/)) {
-    console.error(
+    throw new Error(
       "Invalid `repository` value. Must be in format `owner/repository`."
     );
-    process.exit(1);
   }
   const repositoryOwner = repository.split("/")[0];
   const repositoryName = repository.split("/")[1];
@@ -10300,10 +10300,10 @@ var getInputs = () => {
   };
 };
 
-// src/main.ts
+// src/delete-stale-branches.ts
 var chalk2 = new Chalk({ level: 2 });
 var pluralizeBranches = (count) => count === 1 ? "branch" : "branches";
-async function run() {
+var deleteStaleBranches = async () => {
   const { ghToken, daysToDelete, dryRun, repositoryName, repositoryOwner } = getInputs();
   const octokit = getOctokit({ ghToken });
   const branches = await getRepositoryBranches({
@@ -10349,7 +10349,7 @@ Dry run. Would delete ${branchesToDelete.length} ${pluralizeBranches(
   }
   if (!branchesToDelete.length) {
     console.log("\n\nNo stale branches found.");
-    process.exit(0);
+    return;
   }
   console.log(
     `
@@ -10375,10 +10375,9 @@ Deleting ${branchesToDelete.length} ${pluralizeBranches(
     ({ status }) => status === "rejected"
   );
   if (failedDeletions.length) {
-    console.error(
+    throw new Error(
       `${failedDeletions}/${branchesToDelete.length} branch deletions failed.`
     );
-    process.exit(1);
   }
   console.log(
     `
@@ -10386,8 +10385,10 @@ Successfully deleted ${branchesToDelete.length} ${pluralizeBranches(
       branchesToDelete.length
     )}.`
   );
-}
-run();
+};
+
+// src/main.ts
+deleteStaleBranches();
 /*! Bundled license information:
 
 fetch-blob/index.js:

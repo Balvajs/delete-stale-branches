@@ -1846,6 +1846,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jest/create-cache-key-function@npm:^27.4.2":
+  version: 27.5.1
+  resolution: "@jest/create-cache-key-function@npm:27.5.1"
+  dependencies:
+    "@jest/types": ^27.5.1
+  checksum: a6c3a8c769aca6f66f5dc80f1c77e66980b4f213a6b2a15a92ba3595f032848a1261c06c9c798dcf2b672b1ffbefad5085af89d130548741c85ddbe0cf4284e7
+  languageName: node
+  linkType: hard
+
 "@jest/environment@npm:^29.6.2":
   version: 29.6.2
   resolution: "@jest/environment@npm:29.6.2"
@@ -2004,6 +2013,19 @@ __metadata:
     slash: ^3.0.0
     write-file-atomic: ^4.0.2
   checksum: ffb8c3c344cd48bedadec295d9c436737eccc39c1f0868aa9753b76397b33b2e5b121058af6f287ba6f2036181137e37df1212334bfa9d9a712986a4518cdc18
+  languageName: node
+  linkType: hard
+
+"@jest/types@npm:^27.5.1":
+  version: 27.5.1
+  resolution: "@jest/types@npm:27.5.1"
+  dependencies:
+    "@types/istanbul-lib-coverage": ^2.0.0
+    "@types/istanbul-reports": ^3.0.0
+    "@types/node": "*"
+    "@types/yargs": ^16.0.0
+    chalk: ^4.0.0
+  checksum: d1f43cc946d87543ddd79d49547aab2399481d34025d5c5f2025d3d99c573e1d9832fa83cef25e9d9b07a8583500229d15bbb07b8e233d127d911d133e2f14b1
   languageName: node
   linkType: hard
 
@@ -2699,6 +2721,132 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc/core-darwin-arm64@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-darwin-arm64@npm:1.3.75"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-x64@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-darwin-x64@npm:1.3.75"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm-gnueabihf@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.75"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-gnu@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.75"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-musl@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-linux-arm64-musl@npm:1.3.75"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-gnu@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-linux-x64-gnu@npm:1.3.75"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-musl@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-linux-x64-musl@npm:1.3.75"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-arm64-msvc@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.75"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-ia32-msvc@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.75"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-x64-msvc@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core-win32-x64-msvc@npm:1.3.75"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core@npm:1.3.75":
+  version: 1.3.75
+  resolution: "@swc/core@npm:1.3.75"
+  dependencies:
+    "@swc/core-darwin-arm64": 1.3.75
+    "@swc/core-darwin-x64": 1.3.75
+    "@swc/core-linux-arm-gnueabihf": 1.3.75
+    "@swc/core-linux-arm64-gnu": 1.3.75
+    "@swc/core-linux-arm64-musl": 1.3.75
+    "@swc/core-linux-x64-gnu": 1.3.75
+    "@swc/core-linux-x64-musl": 1.3.75
+    "@swc/core-win32-arm64-msvc": 1.3.75
+    "@swc/core-win32-ia32-msvc": 1.3.75
+    "@swc/core-win32-x64-msvc": 1.3.75
+  peerDependencies:
+    "@swc/helpers": ^0.5.0
+  dependenciesMeta:
+    "@swc/core-darwin-arm64":
+      optional: true
+    "@swc/core-darwin-x64":
+      optional: true
+    "@swc/core-linux-arm-gnueabihf":
+      optional: true
+    "@swc/core-linux-arm64-gnu":
+      optional: true
+    "@swc/core-linux-arm64-musl":
+      optional: true
+    "@swc/core-linux-x64-gnu":
+      optional: true
+    "@swc/core-linux-x64-musl":
+      optional: true
+    "@swc/core-win32-arm64-msvc":
+      optional: true
+    "@swc/core-win32-ia32-msvc":
+      optional: true
+    "@swc/core-win32-x64-msvc":
+      optional: true
+  peerDependenciesMeta:
+    "@swc/helpers":
+      optional: true
+  checksum: 2447b5d627adc178a460d0e1bdeb55e57d503fd5e4085a5d9b1aa9d311bd38b48b78de55f9541a3a79708b3da5e0080f40eb342b6359c76d82fde66e4a6cf7e7
+  languageName: node
+  linkType: hard
+
+"@swc/jest@npm:0.2.28":
+  version: 0.2.28
+  resolution: "@swc/jest@npm:0.2.28"
+  dependencies:
+    "@jest/create-cache-key-function": ^27.4.2
+    jsonc-parser: ^3.2.0
+  peerDependencies:
+    "@swc/core": "*"
+  checksum: 9f9fe7e091077079511e602afe0d0f270c5a274197fe6d55e7f8a8a0f44aadc70f726d8c2571b0eb2af8030d2bba601786adff2d811d6c01f27395c94c746edd
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -2826,6 +2974,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest@npm:29.5.3":
+  version: 29.5.3
+  resolution: "@types/jest@npm:29.5.3"
+  dependencies:
+    expect: ^29.0.0
+    pretty-format: ^29.0.0
+  checksum: e36bb92e0b9e5ea7d6f8832baa42f087fc1697f6cd30ec309a07ea4c268e06ec460f1f0cfd2581daf5eff5763475190ec1ad8ac6520c49ccfe4f5c0a48bfa676
+  languageName: node
+  linkType: hard
+
 "@types/js-yaml@npm:^4.0.0":
   version: 4.0.5
   resolution: "@types/js-yaml@npm:4.0.5"
@@ -2909,6 +3067,15 @@ __metadata:
   version: 21.0.0
   resolution: "@types/yargs-parser@npm:21.0.0"
   checksum: b2f4c8d12ac18a567440379909127cf2cec393daffb73f246d0a25df36ea983b93b7e9e824251f959e9f928cbc7c1aab6728d0a0ff15d6145f66cec2be67d9a2
+  languageName: node
+  linkType: hard
+
+"@types/yargs@npm:^16.0.0":
+  version: 16.0.5
+  resolution: "@types/yargs@npm:16.0.5"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: 22697f7cc8aa32dcc10981a87f035e183303a58351c537c81fb450270d5c494b1d918186210e445b0eb2e4a8b34a8bda2a595f346bdb1c9ed2b63d193cb00430
   languageName: node
   linkType: hard
 
@@ -3981,15 +4148,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bs-logger@npm:0.x":
-  version: 0.2.6
-  resolution: "bs-logger@npm:0.2.6"
-  dependencies:
-    fast-json-stable-stringify: 2.x
-  checksum: d34bdaf68c64bd099ab97c3ea608c9ae7d3f5faa1178b3f3f345acd94e852e608b2d4f9103fb2e503f5e69780e98293df41691b84be909b41cf5045374d54606
-  languageName: node
-  linkType: hard
-
 "bser@npm:2.1.1":
   version: 2.1.1
   resolution: "bser@npm:2.1.1"
@@ -4886,6 +5044,9 @@ __metadata:
     "@semantic-release/commit-analyzer": 10.0.1
     "@semantic-release/git": 10.0.1
     "@semantic-release/release-notes-generator": 11.0.4
+    "@swc/core": 1.3.75
+    "@swc/jest": 0.2.28
+    "@types/jest": 29.5.3
     "@types/node": 16.11.7
     "@typescript-eslint/eslint-plugin": 6.2.1
     "@typescript-eslint/parser": 6.2.1
@@ -4911,7 +5072,6 @@ __metadata:
     prettier: 3.0.1
     semantic-release: ^21.0.7
     semantic-release-major-tag: 0.3.2
-    ts-jest: 29.1.1
     ts-node: 10.9.1
     tsup: 7.2.0
     typescript: 5.1.6
@@ -5846,7 +6006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect@npm:^29.6.2":
+"expect@npm:^29.0.0, expect@npm:^29.6.2":
   version: 29.6.2
   resolution: "expect@npm:29.6.2"
   dependencies:
@@ -5919,7 +6079,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stable-stringify@npm:2.x, fast-json-stable-stringify@npm:^2.0.0, fast-json-stable-stringify@npm:^2.1.0":
+"fast-json-stable-stringify@npm:^2.0.0, fast-json-stable-stringify@npm:^2.1.0":
   version: 2.1.0
   resolution: "fast-json-stable-stringify@npm:2.1.0"
   checksum: b191531e36c607977e5b1c47811158733c34ccb3bfde92c44798929e9b4154884378536d26ad90dfecd32e1ffc09c545d23535ad91b3161a27ddbb8ebe0cbecb
@@ -7814,20 +7974,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-util@npm:^29.0.0":
-  version: 29.6.1
-  resolution: "jest-util@npm:29.6.1"
-  dependencies:
-    "@jest/types": ^29.6.1
-    "@types/node": "*"
-    chalk: ^4.0.0
-    ci-info: ^3.2.0
-    graceful-fs: ^4.2.9
-    picomatch: ^2.2.3
-  checksum: fc553556c1350c443449cadaba5fb9d604628e8b5ceb6ceaf4e7e08975b24277d0a14bf2e0f956024e03c23e556fcb074659423422a06fbedf2ab52978697ac7
-  languageName: node
-  linkType: hard
-
 "jest-util@npm:^29.6.2":
   version: 29.6.2
   resolution: "jest-util@npm:29.6.2"
@@ -8044,12 +8190,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json5@npm:^2.2.2, json5@npm:^2.2.3":
+"json5@npm:^2.2.2":
   version: 2.2.3
   resolution: "json5@npm:2.2.3"
   bin:
     json5: lib/cli.js
   checksum: 2a7436a93393830bce797d4626275152e37e877b265e94ca69c99e3d20c2b9dab021279146a39cdb700e71b2dd32a4cebd1514cd57cee102b1af906ce5040349
+  languageName: node
+  linkType: hard
+
+"jsonc-parser@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "jsonc-parser@npm:3.2.0"
+  checksum: 946dd9a5f326b745aa326d48a7257e3f4a4b62c5e98ec8e49fa2bdd8d96cef7e6febf1399f5c7016114fd1f68a1c62c6138826d5d90bc650448e3cf0951c53c7
   languageName: node
   linkType: hard
 
@@ -8442,13 +8595,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.memoize@npm:4.x":
-  version: 4.1.2
-  resolution: "lodash.memoize@npm:4.1.2"
-  checksum: 9ff3942feeccffa4f1fafa88d32f0d24fdc62fd15ded5a74a5f950ff5f0c6f61916157246744c620173dddf38d37095a92327d5fd3861e2063e736a5c207d089
-  languageName: node
-  linkType: hard
-
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -8583,7 +8729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-error@npm:1.x, make-error@npm:^1.1.1":
+"make-error@npm:^1.1.1":
   version: 1.3.6
   resolution: "make-error@npm:1.3.6"
   checksum: b86e5e0e25f7f777b77fabd8e2cbf15737972869d852a22b7e73c17623928fccb826d8e46b9951501d3f20e51ad74ba8c59ed584f610526a48f8ccf88aaec402
@@ -9995,7 +10141,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^29.6.2":
+"pretty-format@npm:^29.0.0, pretty-format@npm:^29.6.2":
   version: 29.6.2
   resolution: "pretty-format@npm:29.6.2"
   dependencies:
@@ -11540,39 +11686,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:29.1.1":
-  version: 29.1.1
-  resolution: "ts-jest@npm:29.1.1"
-  dependencies:
-    bs-logger: 0.x
-    fast-json-stable-stringify: 2.x
-    jest-util: ^29.0.0
-    json5: ^2.2.3
-    lodash.memoize: 4.x
-    make-error: 1.x
-    semver: ^7.5.3
-    yargs-parser: ^21.0.1
-  peerDependencies:
-    "@babel/core": ">=7.0.0-beta.0 <8"
-    "@jest/types": ^29.0.0
-    babel-jest: ^29.0.0
-    jest: ^29.0.0
-    typescript: ">=4.3 <6"
-  peerDependenciesMeta:
-    "@babel/core":
-      optional: true
-    "@jest/types":
-      optional: true
-    babel-jest:
-      optional: true
-    esbuild:
-      optional: true
-  bin:
-    ts-jest: cli.js
-  checksum: a8c9e284ed4f819526749f6e4dc6421ec666f20ab44d31b0f02b4ed979975f7580b18aea4813172d43e39b29464a71899f8893dd29b06b4a351a3af8ba47b402
-  languageName: node
-  linkType: hard
-
 "ts-log@npm:^2.2.3":
   version: 2.2.5
   resolution: "ts-log@npm:2.2.5"
@@ -12369,7 +12482,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs-parser@npm:^21.0.1, yargs-parser@npm:^21.1.1":
+"yargs-parser@npm:^21.1.1":
   version: 21.1.1
   resolution: "yargs-parser@npm:21.1.1"
   checksum: ed2d96a616a9e3e1cc7d204c62ecc61f7aaab633dcbfab2c6df50f7f87b393993fe6640d017759fe112d0cb1e0119f2b4150a87305cc873fd90831c6a58ccf1c

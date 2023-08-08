@@ -2,23 +2,30 @@ import { getInput } from '@actions/core'
 
 export const getInputs = () => {
   const ghToken = getInput('token', { required: true })
+
   const daysToDeleteInput = getInput('days-to-delete', { required: true })
-  const dryRun = getInput('dry-run') !== 'false'
-
   const daysToDelete = parseInt(daysToDeleteInput, 10)
-
-  if (Number.isNaN(daysToDelete) || daysToDelete < 0) {
-    console.error('Invalid `days-to-delete` value. Must be a positive number.')
-    process.exit(1)
+  if (
+    !daysToDeleteInput.match(/^\d+$/) ||
+    Number.isNaN(daysToDelete) ||
+    daysToDelete <= 0
+  ) {
+    throw new Error(
+      'Invalid `days-to-delete` value. Must be a positive number or zero.',
+    )
   }
 
-  const repository = getInput('repository', { required: true })
+  const dryRunInput = getInput('dry-run', { required: true })
+  if (!dryRunInput.match('true') && !dryRunInput.match('false')) {
+    throw new Error('Invalid `dry-run` value. Must be either `true` or `false`')
+  }
+  const dryRun = dryRunInput !== 'false'
 
+  const repository = getInput('repository', { required: true })
   if (!repository.match(/^[^/]*\/[^/]*$/)) {
-    console.error(
+    throw new Error(
       'Invalid `repository` value. Must be in format `owner/repository`.',
     )
-    process.exit(1)
   }
 
   const repositoryOwner = repository.split('/')[0]

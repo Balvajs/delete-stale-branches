@@ -1,7 +1,6 @@
 import { debug } from '@actions/core'
 import dayjs from 'dayjs'
 
-import { getOctokit } from './get-octokit.ts'
 import { BranchesQuery } from './__generated__/get-branches.graphql.ts'
 
 const branchesQuery = /* GraphQL */ `
@@ -46,23 +45,26 @@ export const getRepositoryBranches = async ({
   repositoryOwner,
   repositoryName,
 }: {
-  octokit: ReturnType<typeof getOctokit>
+  octokit: {
+    graphql: {
+      paginate: (
+        query: string,
+        initialParameters?: Record<string, unknown>,
+      ) => Promise<BranchesQuery>
+    }
+  }
   repositoryOwner: string
   repositoryName: string
 }) => {
-  const { repository } = await octokit.graphql.paginate<BranchesQuery>(
-    branchesQuery,
-    {
-      owner: repositoryOwner,
-      name: repositoryName,
-    },
-  )
+  const { repository } = await octokit.graphql.paginate(branchesQuery, {
+    owner: repositoryOwner,
+    name: repositoryName,
+  })
 
   const nodes = repository?.refs?.nodes
 
   if (!nodes) {
-    console.error('No branches found.')
-    process.exit(1)
+    throw new Error('No branches found.')
   }
 
   debug(
