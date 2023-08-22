@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node16",
     "module": "esnext",
     "target": "esnext",
     "outDir": "./lib",
@@ -15,5 +15,5 @@
     "noImplicitReturns": true,
     "allowImportingTsExtensions": true
   },
-  "exclude": ["node_modules", "dist", ".yarn"]
+  "exclude": ["node_modules", "dist"]
 }

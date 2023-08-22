@@ -26,10 +26,12 @@ jobs:
         with:
           node-version: 18.x
 
+      - uses: pnpm/action-setup@v2
+
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install --immutable
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn semantic-release
+        run: pnpm semantic-release
