@@ -1,7 +1,3 @@
-/**
- * Copyright (c) ProductBoard, Inc.
- * All rights reserved.
- */
 import { Octokit } from '@octokit/core'
 import { paginateGraphql } from '@octokit/plugin-paginate-graphql'
 import fetch from 'node-fetch'

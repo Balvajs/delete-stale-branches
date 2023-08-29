@@ -1,8 +1,3 @@
-/**
- * Copyright (c) ProductBoard, Inc.
- * All rights reserved.
- */
-
 import path from 'path'
 
 import { schema } from '@octokit/graphql-schema'
