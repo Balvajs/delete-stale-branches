@@ -10,7 +10,7 @@
   "packageRules": [
     {
       "matchPackageNames": ["@types/node"],
-      "allowedVersions": "/^18\\..*$/"
+      "allowedVersions": "/^20\\..*$/"
     }
   ]
 }
