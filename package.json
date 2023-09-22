@@ -42,7 +42,7 @@
     "@graphql-codegen/typescript-operations": "4.0.1",
     "@octokit/core": "5.0.0",
     "@octokit/graphql": "7.0.1",
-    "@octokit/graphql-schema": "14.31.0",
+    "@octokit/graphql-schema": "14.31.1",
     "@octokit/plugin-paginate-graphql": "4.0.0",
     "@semantic-release/commit-analyzer": "11.0.0",
     "@semantic-release/git": "10.0.1",
