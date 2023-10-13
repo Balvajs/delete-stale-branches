@@ -11,6 +11,14 @@
     {
       "matchPackageNames": ["@types/node"],
       "allowedVersions": "/^20\\..*$/"
+    },
+    {
+      "matchManagers": ["npm"],
+      "postUpgradeTasks": {
+        "commands": ["pnpm install", "pnpm generate", "pnpm package"],
+        "fileFilters": ["src/**/*", "dist/**/*"],
+        "executionMode": "branch"
+      }
     }
   ]
 }
