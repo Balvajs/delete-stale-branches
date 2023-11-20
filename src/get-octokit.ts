@@ -1,4 +1,4 @@
-import { Octokit } from '@octokit/core'
+import { Octokit } from '@octokit/action'
 import { paginateGraphql } from '@octokit/plugin-paginate-graphql'
 import fetch from 'node-fetch'
 
