@@ -23,9 +23,9 @@ devDependencies:
   '@graphql-codegen/typescript-operations':
     specifier: 4.0.1
     version: 4.0.1(graphql@16.8.1)
-  '@octokit/core':
-    specifier: 5.0.1
-    version: 5.0.1
+  '@octokit/action':
+    specifier: 6.0.6
+    version: 6.0.6
   '@octokit/graphql':
     specifier: 7.0.2
     version: 7.0.2
@@ -1127,6 +1127,11 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
+  /@fastify/busboy@2.1.0:
+    resolution: {integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==}
+    engines: {node: '>=14'}
+    dev: true
+
   /@github/browserslist-config@1.0.0:
     resolution: {integrity: sha512-gIhjdJp/c2beaIWWIlsXdqXVRUz3r2BxBCpfz/F3JXHvSAQ1paMYjLH+maEATtENg+k5eLV7gA+9yPp762ieuw==}
     dev: true
@@ -2107,6 +2112,26 @@ packages:
       fastq: 1.15.0
     dev: true
 
+  /@octokit/action@6.0.6:
+    resolution: {integrity: sha512-glsTZrjXgAHpyDKQah53hQUkb79mSrGSSqLeyiri9wDs3Ds3aaR7D9H3r5kLW6RAY606to9cjwVEClbEkoGoow==}
+    engines: {node: '>= 18'}
+    dependencies:
+      '@octokit/auth-action': 4.0.1
+      '@octokit/core': 5.0.1
+      '@octokit/plugin-paginate-rest': 9.1.4(@octokit/core@5.0.1)
+      '@octokit/plugin-rest-endpoint-methods': 10.1.5(@octokit/core@5.0.1)
+      '@octokit/types': 12.0.0
+      undici: 5.27.2
+    dev: true
+
+  /@octokit/auth-action@4.0.1:
+    resolution: {integrity: sha512-mJLOcFFafIivLZ7BEkGDCTFoHPJv7BeL5Zwy7j5qMDU0b/DKshhi6GCU9tw3vmKhOxTNquYfvwqsEfPpemaaxg==}
+    engines: {node: '>= 18'}
+    dependencies:
+      '@octokit/auth-token': 4.0.0
+      '@octokit/types': 12.0.0
+    dev: true
+
   /@octokit/auth-token@4.0.0:
     resolution: {integrity: sha512-tY/msAuJo6ARbK6SPIxZrPBms3xPbfwBrulZe0Wtr/DIY9lje2HeV1uoebShn6mx7SjCHif6EjMvoREj+gZ+SA==}
     engines: {node: '>= 18'}
@@ -2158,6 +2183,10 @@ packages:
     resolution: {integrity: sha512-PclQ6JGMTE9iUStpzMkwLCISFn/wDeRjkZFIKALpvJQNBGwDoYYi2fFvuHwssoQ1rXI5mfh6jgTgWuddeUzfWw==}
     dev: true
 
+  /@octokit/openapi-types@19.0.2:
+    resolution: {integrity: sha512-8li32fUDUeml/ACRp/njCWTsk5t17cfTM1jp9n08pBrqs5cDFJubtjsSnuz56r5Tad6jdEPJld7LxNp9dNcyjQ==}
+    dev: true
+
   /@octokit/plugin-paginate-graphql@4.0.0(@octokit/core@5.0.1):
     resolution: {integrity: sha512-7HcYW5tP7/Z6AETAPU14gp5H5KmCPT3hmJrS/5tO7HIgbwenYmgw4OY9Ma54FDySuxMwD+wsJlxtuGWwuZuItA==}
     engines: {node: '>= 18'}
@@ -2175,6 +2204,26 @@ packages:
     dependencies:
       '@octokit/core': 5.0.1
       '@octokit/types': 11.1.0
+    dev: true
+
+  /@octokit/plugin-paginate-rest@9.1.4(@octokit/core@5.0.1):
+    resolution: {integrity: sha512-MvZx4WvfhBnt7PtH5XE7HORsO7bBk4er1FgRIUr1qJ89NR2I6bWjGyKsxk8z42FPQ34hFQm0Baanh4gzdZR4gQ==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      '@octokit/core': '>=5'
+    dependencies:
+      '@octokit/core': 5.0.1
+      '@octokit/types': 12.3.0
+    dev: true
+
+  /@octokit/plugin-rest-endpoint-methods@10.1.5(@octokit/core@5.0.1):
+    resolution: {integrity: sha512-LMEdsMV8TTMjMTqVoqMzV95XTbv0ZsWxCxQtjAunQOCdwoDH4BVF/Ke5JMSZEVCWGI2kzxnUNbFnK/MxwV7NjA==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      '@octokit/core': '>=5'
+    dependencies:
+      '@octokit/core': 5.0.1
+      '@octokit/types': 12.3.0
     dev: true
 
   /@octokit/plugin-retry@6.0.0(@octokit/core@5.0.1):
@@ -2230,6 +2279,12 @@ packages:
     resolution: {integrity: sha512-EzD434aHTFifGudYAygnFlS1Tl6KhbTynEWELQXIbTY8Msvb5nEqTZIm7sbPEt4mQYLZwu3zPKVdeIrw0g7ovg==}
     dependencies:
       '@octokit/openapi-types': 19.0.0
+    dev: true
+
+  /@octokit/types@12.3.0:
+    resolution: {integrity: sha512-nJ8X2HRr234q3w/FcovDlA+ttUU4m1eJAourvfUUtwAWeqL8AsyRqfnLvVnYn3NFbUnsmzQCzLNdFerPwdmcDQ==}
+    dependencies:
+      '@octokit/openapi-types': 19.0.2
     dev: true
 
   /@peculiar/asn1-schema@2.3.6:
@@ -8771,6 +8826,13 @@ packages:
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
+  /undici@5.27.2:
+    resolution: {integrity: sha512-iS857PdOEy/y3wlM3yRp+6SNQQ6xU0mmZcwRSriqk+et/cwWAtwmIGf6WkoDN2EK/AMdCO/dfXzIwi+rFMrjjQ==}
+    engines: {node: '>=14.0'}
+    dependencies:
+      '@fastify/busboy': 2.1.0
     dev: true
 
   /unicode-emoji-modifier-base@1.0.0:
