@@ -30,8 +30,8 @@ devDependencies:
     specifier: 7.0.2
     version: 7.0.2
   '@octokit/graphql-schema':
-    specifier: 14.57.0
-    version: 14.57.0
+    specifier: 14.58.0
+    version: 14.58.0
   '@octokit/plugin-paginate-graphql':
     specifier: 4.0.0
     version: 4.0.0(@octokit/core@5.0.1)
@@ -2237,8 +2237,8 @@ packages:
       universal-user-agent: 6.0.0
     dev: true
 
-  /@octokit/graphql-schema@14.57.0:
-    resolution: {integrity: sha512-DvUIxJkfboiQEOme4DOpF4+EtOh1qbYffm/hbcFdqAQzWFPV19Nkul9t/XnyKRPFyy26Nwf8QesCOeYw8os5rQ==}
+  /@octokit/graphql-schema@14.58.0:
+    resolution: {integrity: sha512-89QSUV1Dgxzq90wqkv0Nmw7jHfFCAQ4K/fjp5ezvDEHqFFzMCn25TBQlm38WB8ams+hGxInRDbITCP0n7GTGlg==}
     dependencies:
       graphql: 16.8.1
       graphql-tag: 2.12.6(graphql@16.8.1)
