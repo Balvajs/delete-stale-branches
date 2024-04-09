@@ -15,7 +15,7 @@
     {
       "matchManagers": ["npm"],
       "postUpgradeTasks": {
-        "commands": ["pnpm install", "pnpm generate", "pnpm package"],
+        "commands": ["bun install", "bun generate", "bun package"],
         "fileFilters": ["src/**/*", "dist/**/*"],
         "executionMode": "branch"
       }

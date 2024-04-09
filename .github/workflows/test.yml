@@ -13,11 +13,12 @@ jobs:
         with:
           node-version: 20.x
 
-      - uses: pnpm/action-setup@v2
+      - name: Install bun
+        uses: oven-sh/setup-bun@8f24390df009a496891208e5e36b8a1de1f45135 # v1
 
-      - run: pnpm install
+      - run: bun install --frozen-lockfile
 
-      - run: pnpm all
+      - run: bun all
 
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest

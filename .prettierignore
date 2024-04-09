@@ -2,4 +2,4 @@ dist/
 lib/
 node_modules/
 .cache
-pnpm-lock.yaml
+bun.lockb

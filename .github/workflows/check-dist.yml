@@ -21,13 +21,13 @@ jobs:
         with:
           node-version: 20.x
 
-      - uses: pnpm/action-setup@v2
+      - name: Install bun
+        uses: oven-sh/setup-bun@8f24390df009a496891208e5e36b8a1de1f45135 # v1
 
-      - name: Install dependencies
-        run: pnpm install
+      - run: bun install --frozen-lockfile
 
       - name: Rebuild the dist/ directory
-        run: pnpm package
+        run: bun package
 
       - name: Compare the expected and actual dist/ directories
         run: |
