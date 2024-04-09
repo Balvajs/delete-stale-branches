@@ -15,7 +15,7 @@ const config: Config = {
   transform: {
     '^.+\\.(t|j)s$': '@swc/jest',
   },
-  transformIgnorePatterns: [`node_modules/\.pnpm/(?!${esModules})`],
+  transformIgnorePatterns: [`node_modules/(?!${esModules})`],
   verbose: true,
   testEnvironment: 'node',
 }

@@ -21,7 +21,7 @@ const config: CodegenConfig = {
           add: {
             content: `/* eslint-disable */
                /**
-               * This file is generated, don’t edit it manually. Run \`pnpm generate\` to re-generate.
+               * This file is generated, don’t edit it manually. Run \`bun generate\` to re-generate.
                */
              `,
           },

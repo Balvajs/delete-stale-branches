@@ -3,18 +3,17 @@
   "version": "1.0.0",
   "main": "src/main.ts",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "bunx only-allow bun",
     "type-check": "tsc",
     "format": "prettier . --write -u",
     "format-check": "prettier . --check -u",
     "lint": "eslint src/**/*.ts",
-    "package": "tsup src/main.ts --clean --sourcemap",
+    "package": "tsup src/main.ts --clean",
     "test": "jest --passWithNoTests",
     "generate": "graphql-codegen-esm --config codegen.ts",
-    "all": "pnpm type-check && pnpm format && pnpm lint && pnpm package && pnpm test",
+    "all": "bun run type-check && bun run format && bun run lint && bun run package && bun run test",
     "semantic-release": "semantic-release",
-    "postinstall": "husky install",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -26,7 +25,7 @@
   "engines": {
     "node": "=20"
   },
-  "packageManager": "pnpm@8.15.6",
+  "packageManager": "bun@1.1.1",
   "type": "module",
   "author": "Balvajs",
   "license": "MIT",
