@@ -1,2 +1,2 @@
-dist/** -diff linguist-generated=true 
+dist/** linguist-generated=true 
 *.lockb binary diff=lockb
