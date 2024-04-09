@@ -45158,7 +45158,7 @@ function legacyRestEndpointMethods(octokit) {
 legacyRestEndpointMethods.VERSION = VERSION6;
 
 // node_modules/@octokit/action/dist-src/version.js
-var VERSION7 = "6.0.7";
+var VERSION7 = "6.1.0";
 
 // node_modules/@octokit/action/dist-src/index.js
 var import_undici = __toESM(require_undici());
