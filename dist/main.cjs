@@ -33,9 +33,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// node_modules/@octokit/action/node_modules/before-after-hook/lib/register.js
+// node_modules/before-after-hook/lib/register.js
 var require_register = __commonJS({
-  "node_modules/@octokit/action/node_modules/before-after-hook/lib/register.js"(exports2, module2) {
+  "node_modules/before-after-hook/lib/register.js"(exports2, module2) {
     "use strict";
     module2.exports = register;
     function register(state, name, method, options) {
@@ -62,9 +62,9 @@ var require_register = __commonJS({
   }
 });
 
-// node_modules/@octokit/action/node_modules/before-after-hook/lib/add.js
+// node_modules/before-after-hook/lib/add.js
 var require_add = __commonJS({
-  "node_modules/@octokit/action/node_modules/before-after-hook/lib/add.js"(exports2, module2) {
+  "node_modules/before-after-hook/lib/add.js"(exports2, module2) {
     "use strict";
     module2.exports = addHook;
     function addHook(state, kind, name, hook2) {
@@ -103,9 +103,9 @@ var require_add = __commonJS({
   }
 });
 
-// node_modules/@octokit/action/node_modules/before-after-hook/lib/remove.js
+// node_modules/before-after-hook/lib/remove.js
 var require_remove = __commonJS({
-  "node_modules/@octokit/action/node_modules/before-after-hook/lib/remove.js"(exports2, module2) {
+  "node_modules/before-after-hook/lib/remove.js"(exports2, module2) {
     "use strict";
     module2.exports = removeHook;
     function removeHook(state, name, method) {
@@ -123,9 +123,9 @@ var require_remove = __commonJS({
   }
 });
 
-// node_modules/@octokit/action/node_modules/before-after-hook/index.js
+// node_modules/before-after-hook/index.js
 var require_before_after_hook = __commonJS({
-  "node_modules/@octokit/action/node_modules/before-after-hook/index.js"(exports2, module2) {
+  "node_modules/before-after-hook/index.js"(exports2, module2) {
     "use strict";
     var register = require_register();
     var addHook = require_add();
@@ -42079,7 +42079,7 @@ function getUserAgent() {
   return "<environment undetectable>";
 }
 
-// node_modules/@octokit/action/node_modules/@octokit/core/dist-web/index.js
+// node_modules/@octokit/core/dist-web/index.js
 var import_before_after_hook = __toESM(require_before_after_hook());
 
 // node_modules/@octokit/endpoint/dist-src/version.js
@@ -42681,7 +42681,7 @@ var request = withDefaults2(endpoint, {
   }
 });
 
-// node_modules/@octokit/action/node_modules/@octokit/graphql/dist-web/index.js
+// node_modules/@octokit/core/node_modules/@octokit/graphql/dist-web/index.js
 var VERSION3 = "7.1.0";
 function _buildMessageForResponseErrors(data) {
   return `Request failed due to following response errors:
@@ -42786,7 +42786,7 @@ function withCustomRequest(customRequest) {
   });
 }
 
-// node_modules/@octokit/action/node_modules/@octokit/core/dist-web/index.js
+// node_modules/@octokit/core/dist-web/index.js
 init_dist_src();
 var VERSION4 = "5.2.0";
 var noop = () => {
@@ -42917,7 +42917,7 @@ var Octokit = class {
 // node_modules/@octokit/action/dist-src/index.js
 var import_auth_action = __toESM(require_dist_node());
 
-// node_modules/@octokit/action/node_modules/@octokit/plugin-paginate-rest/dist-web/index.js
+// node_modules/@octokit/plugin-paginate-rest/dist-web/index.js
 var VERSION5 = "9.2.1";
 function normalizePaginatedListResponse(response) {
   if (!response.data) {
@@ -43023,10 +43023,10 @@ function paginateRest(octokit) {
 }
 paginateRest.VERSION = VERSION5;
 
-// node_modules/@octokit/action/node_modules/@octokit/plugin-rest-endpoint-methods/dist-src/version.js
+// node_modules/@octokit/plugin-rest-endpoint-methods/dist-src/version.js
 var VERSION6 = "10.4.1";
 
-// node_modules/@octokit/action/node_modules/@octokit/plugin-rest-endpoint-methods/dist-src/generated/endpoints.js
+// node_modules/@octokit/plugin-rest-endpoint-methods/dist-src/generated/endpoints.js
 var Endpoints = {
   actions: {
     addCustomLabelsToSelfHostedRunnerForOrg: [
@@ -45017,7 +45017,7 @@ var Endpoints = {
 };
 var endpoints_default = Endpoints;
 
-// node_modules/@octokit/action/node_modules/@octokit/plugin-rest-endpoint-methods/dist-src/endpoints-to-methods.js
+// node_modules/@octokit/plugin-rest-endpoint-methods/dist-src/endpoints-to-methods.js
 var endpointMethodsMap = /* @__PURE__ */ new Map();
 for (const [scope, endpoints] of Object.entries(endpoints_default)) {
   for (const [methodName, endpoint2] of Object.entries(endpoints)) {
@@ -45140,7 +45140,7 @@ function decorate(octokit, scope, methodName, defaults, decorations) {
   return Object.assign(withDecorations, requestWithDefaults);
 }
 
-// node_modules/@octokit/action/node_modules/@octokit/plugin-rest-endpoint-methods/dist-src/index.js
+// node_modules/@octokit/plugin-rest-endpoint-methods/dist-src/index.js
 function restEndpointMethods(octokit) {
   const api = endpointsToMethods(octokit);
   return {
