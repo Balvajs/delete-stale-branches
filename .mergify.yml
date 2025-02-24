@@ -1,12 +1,5 @@
+
 pull_request_rules:
-  - name: Automatic merge Renovate PRs
-    conditions:
-      - '#approved-reviews-by>=1'
-      - 'author=balvajs-renovate[bot]'
-    actions:
-      queue:
-        name: default
-        method: squash
   - name: Automatic approval to Renovate PRs
     conditions:
       - body~=\*\*Automerge\*\*. Enabled
@@ -15,7 +8,14 @@ pull_request_rules:
         type: APPROVE
         bot_account: Balvajs
 
+  - name: Automatic merge Renovate PRs
+    conditions: []
+    actions:
+      queue:
 queue_rules:
   - name: default
     queue_conditions:
       - '#approved-reviews-by>=1'
+      - 'author=balvajs-renovate[bot]'
+    merge_conditions: []
+    merge_method: squash
